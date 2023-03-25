@@ -1,8 +1,9 @@
 
+-v ==> verbose
+-x ==> to stop execution of remaining case on first failure
+
+coverage run -m pytest --disable-warnings -v -x test_bank.py
 
 
-coverage run -m pytest test_bank.py
-
-
-coverage run -m pytest
+coverage run -m pytest --disable-warnings -v -x
 coverage report -m 

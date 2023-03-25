@@ -50,4 +50,12 @@ def test_transaction(zero_bank_account, deposited, withdraw, expected):
 def test_insufficient_funds(zero_bank_account):
     with pytest.raises(InsufficientFund):
         zero_bank_account.withdraw(10)
-
+        
+def test_insufficient_funds_message(zero_bank_account):
+    with pytest.raises(InsufficientFund) as e:
+        zero_bank_account.withdraw(10)
+    assert str(e.value) == "Insufficient balance."
+    
+def test_insufficient_funds_message_with_match(zero_bank_account):
+    with pytest.raises(InsufficientFund, match="Insufficient balance."):
+        zero_bank_account.withdraw(10)
