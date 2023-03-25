@@ -1,0 +1,4 @@
+env/
+htmlcov/
+.coverage
+.pytest_cache
